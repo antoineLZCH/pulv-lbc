@@ -5,4 +5,19 @@
         <h1>Lebonfork</h1>
         <p>Lorem ipsum</p>
     </div>
+    <div class="container">
+        <h2>Les derniers biens</h2>
+        <div class="row">
+            {% for product in products %}
+                <div class="card col-md-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-danger">{{ product.price }}€</h6>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="#">See product</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
