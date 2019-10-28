@@ -18,7 +18,6 @@ class HomeController extends AbstractController
     public function index(ProductRepository $repository): Response
     {
         $products = $repository->findLatest();
-        dump($products);
         return $this->render("pages/home.html.twig", [
             'products' => $products
         ]);

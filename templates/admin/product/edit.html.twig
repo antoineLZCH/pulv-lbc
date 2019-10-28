@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Admin' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Éditer le bien</h1>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.title) }}</div>
+            <div class="col-md-6">{{ form_row(form.price) }}</div>
+            <div class="col-12">{{ form_row(form.description) }}</div>
+        </div>
+        <button class="btn btn-dark">Éditer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
