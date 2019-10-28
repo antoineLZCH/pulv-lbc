@@ -14,7 +14,9 @@
                         <h5 class="card-title">{{ product.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-danger">{{ product.price }}€</h6>
                         <p class="card-text">{{ product.description }}</p>
-                        <a href="#">See product</a>
+                        <a href="{{ path('product.show', {id: product.id, slug: product.slug}) }}">
+                            See product
+                        </a>
                     </div>
                 </div>
             {% endfor %}
