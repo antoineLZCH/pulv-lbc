@@ -31,6 +31,19 @@ class ProductsController extends AbstractController
     }
 
     /**
+     * @Route("/sorted", name="products.index.sorted")
+     * @return Response
+     */
+    public function sortedIndex(): Response
+    {
+        $products = $this->repository->findAndOrderByPrice();
+        return $this->render('pages/sorted.html.twig', [
+            'current_menu' => 'sorted',
+            'products' => $products
+        ]);
+    }
+
+    /**
      * @Route("/products/{slug}-{id}", name="product.show", requirements={"slug":"[a-z0-9\-]*"})
      * @param Product $product
      * @param string $slug

@@ -13,6 +13,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == "sorted" %} active {% endif %}"
+                   href="{{ path('products.index.sorted') }}">
+                    Nos biens triés
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {% if current_menu is defined and current_menu == "admin" %} active {% endif %}"
                    href="{{ path('admin.product.index') }}">Admin</a>
             </li>
