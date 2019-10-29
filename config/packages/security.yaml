@@ -11,6 +11,11 @@ security:
       security: false
     main:
       anonymous: true
+
+      logout:
+        path: /logout
+        target: /
+
       form_login:
         check_path: login
 
@@ -25,3 +30,6 @@ security:
   access_control:
     - { path: ^/admin, roles: ROLE_ADMIN }
   # - { path: ^/profile, roles: ROLE_USER }
+
+  encoders:
+    App\Entity\User: plaintext
