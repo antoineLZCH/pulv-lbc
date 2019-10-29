@@ -4,7 +4,21 @@
 
 {% block body %}
     <div class="container mt-4">
-        <h2>Administrer les biens</h2>
+        <div class="mb-4">
+            <h2>Administrer les biens</h2>
+            <a href="{{ path('admin.product.store') }}"
+               class="btn btn-dark">Créer un nouveau bien</a>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -21,6 +35,13 @@
                     <td>
                         <a href="{{ path('admin.product.edit', {id: product.id}) }}"
                            class="btn btn-secondary">Éditer</a>
+                        <form action="{{ path('admin.product.delete', {id: product.id}) }}" method="post"
+                              class="d-inline-block"
+                              onsubmit="return confirm('Êtes vous sûrs de vouloir supprimer cet article ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}

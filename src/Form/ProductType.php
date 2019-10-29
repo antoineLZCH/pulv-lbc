@@ -14,14 +14,14 @@ class ProductType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('price')
-        ;
+            ->add('price');
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Product::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }
